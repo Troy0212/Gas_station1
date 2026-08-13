@@ -1,371 +1,1482 @@
+/* =========================================================
+   FIRE GAS STATION
+   COMPLETE STYLE.CSS
+   ========================================================= */
 
-/* BODY & BACKGROUND */
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  color:white;
-  background:
-    linear-gradient(rgba(10,15,25,0.85), rgba(10,15,25,0.9)),
-    url("https://images.unsplash.com/photo-1632713336243-36dc3976a330?auto=format&fit=crop&w=1920&q=80");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
 }
 
 
-/* HEADER */
-/* ================= HEADER ================= */
+/* =========================================================
+   DASHBOARD BODY & BACKGROUND IMAGE
+   ========================================================= */
 
-.topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    background:linear-gradient(90deg,#1c2530,#11161d);
-    border-bottom:4px solid #ff3b3b;
-    flex-wrap:wrap;
-    gap:20px;
-}
+body:not(.login-body):not(.register-body) {
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
+    margin: 0;
 
-.logo-circle{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#ff3b3b,#ff7a00);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    box-shadow:0 5px 15px rgba(0,0,0,.5);
-}
+    font-family: 'Inter', sans-serif;
 
-.brand-text h1{
-    margin:0;
-    font-size:32px;
-    color:#fff;
-    font-weight:700;
-}
-
-.brand-text p{
-    margin:4px 0 0;
-    color:#bdbdbd;
-    font-size:14px;
-}
-
-.topbar-right{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.welcome{
-    color:#fff;
-    font-size:15px;
-    font-weight:500;
-}
-
-.logout-btn{
-    padding:10px 22px;
-    border-radius:8px;
-    background:linear-gradient(135deg,#ff3b3b,#ff7a00);
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-.logout-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(255,122,0,.35);
-}
-
-
-/* DASHBOARD CARDS */
-.dashboard{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-bottom:30px;
-}
-.card{ flex:1 1 250px; padding:25px; border-radius:10px; background:rgba(27,36,48,0.92); transition:0.25s;}
-.card:hover{ transform:translateY(-5px);}
-.card h3{ margin:0; font-size:16px; color:#aaa;}
-.card p{ font-size:28px; margin-top:8px; font-weight:700;}
-.gasoline{ border-left:6px solid #ff4b4b;}
-.diesel{ border-left:6px solid #3fa7ff;}
-.premium{ border-left:6px solid #d64bff;}
-.card.total-revenue{ border-left:6px solid #22c55e;}
-
-
-/* CIRCLE CHART */
-.circle-chart{ display:flex; gap:5px; margin-top:10px; }
-.circle{ width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; color:white; cursor:pointer;}
-.circle.gasoline{ background-color:#f97316;}
-.circle.diesel{ background-color:#3b82f6;}
-.circle.premium{ background-color:#a855f7;}
-
-
-/* FORM */
-.content{
-    display:grid;
-    grid-template-columns:350px 1fr;
-    gap:25px;
-    align-items:start;
-}
-.form-section{ flex:1 1 300px; background:rgba(27,36,48,0.92); padding:25px; border-radius:10px;}
-.form-section h2{ margin-top:0; margin-bottom:20px;}
-label{ font-size:13px; color:#bbb; }
-
-input,
-select{
-width:100%;
-max-width:100%;
-box-sizing:border-box;
-width:100%;
-max-width:100%;
-box-sizing:border-box;
-}
-
-button{ width:100%; padding:12px; background:linear-gradient(90deg,#ff3b3b,#ff7a00); border:none; border-radius:6px; color:white; font-weight:600; cursor:pointer;}
-button:hover{ opacity:0.9;}
-
-
-/* TABLE */
-.table-section{ flex:2 1 600px; background:rgba(27,36,48,0.92); padding:25px; border-radius:10px; overflow-x:auto;}
-.table-section h2{ margin-top:0; margin-bottom:20px;}
-table{ width:100%; border-collapse:collapse; border-radius:10px; overflow:hidden; font-size:14px;}
-th{ background-color:#1f2937; color:#ffffff; text-align:left; padding:12px;}
-td{ padding:12px; border-bottom:1px solid #2c3e50; color:#e0e0e0;}
-tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05);}
-tbody tr:hover{ background-color: rgba(255,255,255,0.1);}
-.total{ color:#4ade80; font-weight:600; }
-.delete{ color:#f87171; text-decoration:none; font-weight:600;}
-.delete:hover{ text-decoration:underline;}
-
-
-/* Fuel badges */
-.fuel-badge{ padding:4px 8px; border-radius:6px; color:#fff; font-weight:500; font-size:13px; display:inline-block; min-width:70px; text-align:center;}
-.fuel-badge.gasoline{ background-color:#f97316; }
-.fuel-badge.diesel{ background-color:#3b82f6; }
-.fuel-badge.premium{ background-color:#a855f7;}
-
-
-/* MEDIA QUERIES */
-@media screen and (max-width:1024px){ .main-container{ width:95%; } }
-@media screen and (max-width:768px){ .dashboard{ flex-direction:column; } .content{ flex-direction:column; } .form-section,.table-section{ width:100%; } }
-@media screen and (max-width:480px){ .topbar{ justify-content:center; text-align:center; } .brand{ flex-direction:column; gap:10px; } .logo-circle{ width:50px; height:50px; font-size:24px; } .card p{ font-size:24px; } .form-section,.table-section{ padding:20px; } }
-
-/* ================= LOGIN PAGE ================= */
-
-/* ================= LOGIN PAGE ================= */
-
-.login-body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Inter',sans-serif;
+    color: #ffffff;
 
     background:
-    linear-gradient(rgba(8,12,20,.88),rgba(8,12,20,.88)),
-    url("https://images.unsplash.com/photo-1632713336243-36dc3976a330?auto=format&fit=crop&w=1920&q=80");
+        linear-gradient(
+            rgba(10, 15, 25, 0.78),
+            rgba(10, 15, 25, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1632713336243-36dc3976a330?auto=format&fit=crop&w=1920&q=80");
 
-    background-size:cover;
-    background-position:center;
-}
+    background-size: cover;
 
-.login-container{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+    background-position: center;
 
-.login-card{
-
-    width:430px;
-
-    background:rgba(28,37,48,.92);
-
-    border-radius:18px;
-
-    padding:45px;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.45);
-
-    border:1px solid rgba(255,255,255,.08);
+    background-attachment: fixed;
 
 }
 
-.login-logo{
 
-    width:90px;
-    height:90px;
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
 
-    border-radius:50%;
+.main-container {
 
-    margin:auto;
+    width: 92%;
 
-    background:linear-gradient(135deg,#ff3b3b,#ff7a00);
+    max-width: 1400px;
 
-    display:flex;
+    margin: 0 auto;
 
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:40px;
-
-    color:#fff;
-
-    margin-bottom:25px;
+    padding: 30px 0 40px;
 
 }
 
-.login-card h1{
 
-    color:#fff;
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-    text-align:center;
+.topbar {
 
-    margin:0;
+    display: flex;
 
-    font-size:40px;
+    justify-content: space-between;
 
-}
+    align-items: center;
 
-.login-card p{
+    padding: 20px 40px;
 
-    color:#bbb;
+    background:
+        linear-gradient(
+            90deg,
+            #1c2530,
+            #11161d
+        );
 
-    text-align:center;
+    border-bottom: 4px solid #ff3b3b;
 
-    margin:10px 0 35px;
+    flex-wrap: wrap;
 
-}
-
-.login-group{
-
-    margin-bottom:18px;
-
-}
-
-.login-group label{
-
-    display:block;
-
-    margin-bottom:8px;
-
-    color:#ddd;
+    gap: 20px;
 
 }
 
-.login-group input{
 
-    width:100%;
+/* BRAND */
 
-    padding:14px;
+.brand {
 
-    border-radius:10px;
+    display: flex;
 
-    border:1px solid #444;
+    align-items: center;
 
-    background:#10151f;
-
-    color:white;
-
-    font-size:15px;
-
-    box-sizing:border-box;
+    gap: 15px;
 
 }
 
-.login-group input:focus{
 
-    border-color:#ff7a00;
+/* LOGO */
 
-    outline:none;
+.logo-circle {
 
-    box-shadow:0 0 8px rgba(255,122,0,.4);
+    width: 60px;
 
-}
+    height: 60px;
 
-.login-btn{
+    flex-shrink: 0;
 
-    width:100%;
+    border-radius: 50%;
 
-    padding:15px;
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #ff7a00
+        );
 
-    border:none;
+    display: flex;
 
-    border-radius:10px;
+    justify-content: center;
 
-    background:linear-gradient(135deg,#ff3b3b,#ff7a00);
+    align-items: center;
 
-    color:white;
+    font-size: 28px;
 
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.login-btn:hover{
-
-    transform:translateY(-2px);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.5);
 
 }
 
-.login-links{
 
-    text-align:center;
+/* BRAND TEXT */
 
-    margin-top:25px;
+.brand-text h1 {
 
-}
+    margin: 0;
 
-.login-links p{
+    font-size: 32px;
 
-    color:#bbb;
+    color: #ffffff;
 
-}
-
-.register-link{
-
-    display:inline-block;
-
-    margin-top:10px;
-
-    color:#ff7a00;
-
-    border:2px solid #ff7a00;
-
-    padding:10px 25px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    transition:.3s;
+    font-weight: 700;
 
 }
 
-.register-link:hover{
 
-    background:#ff7a00;
+.brand-text p {
 
-    color:#fff;
+    margin: 4px 0 0;
+
+    color: #bdbdbd;
+
+    font-size: 14px;
+
+}
+
+
+/* TOPBAR RIGHT */
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.welcome {
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+.logout-btn {
+
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #ff7a00
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+.logout-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 122, 0, 0.35);
+
+}
+
+
+/* =========================================================
+   DASHBOARD SALES CARDS
+   ========================================================= */
+
+.dashboard {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 20px;
+
+    margin: 0 0 30px 0;
+
+}
+
+
+.card {
+
+    width: 100%;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(27, 36, 48, 0.92);
+
+    transition: 0.25s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.card h3 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    color: #aaaaaa;
+
+}
+
+
+.card p {
+
+    font-size: 28px;
+
+    margin: 8px 0 0;
+
+    font-weight: 700;
+
+}
+
+
+/* CARD COLORS */
+
+.card.gasoline {
+
+    border-left: 6px solid #ff4b4b;
+
+}
+
+
+.card.diesel {
+
+    border-left: 6px solid #3fa7ff;
+
+}
+
+
+.card.premium {
+
+    border-left: 6px solid #d64bff;
+
+}
+
+
+.card.total-revenue {
+
+    border-left: 6px solid #22c55e;
+
+}
+
+
+/* =========================================================
+   CIRCLE CHART
+   ========================================================= */
+
+.circle-chart {
+
+    display: flex;
+
+    gap: 5px;
+
+    margin-top: 10px;
+
+}
+
+
+.circle {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+}
+
+
+.circle.gasoline {
+
+    background-color: #f97316;
+
+}
+
+
+.circle.diesel {
+
+    background-color: #3b82f6;
+
+}
+
+
+.circle.premium {
+
+    background-color: #a855f7;
+
+}
+
+
+/* =========================================================
+   CONTENT AREA
+   ========================================================= */
+
+.content {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 350px)
+        minmax(0, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+
+    width: 100%;
+
+    background:
+        rgba(27, 36, 48, 0.92);
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+}
+
+
+.form-section h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+}
+
+
+label {
+
+    font-size: 13px;
+
+    color: #bbbbbb;
+
+}
+
+
+/* =========================================================
+   INPUT & SELECT
+   ========================================================= */
+
+input,
+select {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   DASHBOARD BUTTON
+   ========================================================= */
+
+button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3b3b,
+            #ff7a00
+        );
+
+    border: none;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   TABLE / SALES RECORDS
+   ========================================================= */
+
+.table-section {
+
+    width: 100%;
+
+    min-width: 0;
+
+    background:
+        rgba(27, 36, 48, 0.92);
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+
+}
+
+
+.table-section h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    font-size: 14px;
+
+}
+
+
+th {
+
+    background-color: #1f2937;
+
+    color: #ffffff;
+
+    text-align: left;
+
+    padding: 12px;
+
+}
+
+
+td {
+
+    padding: 12px;
+
+    border-bottom:
+        1px solid #2c3e50;
+
+    color: #e0e0e0;
+
+}
+
+
+tbody tr:nth-child(even) {
+
+    background-color:
+        rgba(255, 255, 255, 0.05);
+
+}
+
+
+tbody tr:hover {
+
+    background-color:
+        rgba(255, 255, 255, 0.10);
+
+}
+
+
+.total {
+
+    color: #4ade80;
+
+    font-weight: 600;
+
+}
+
+
+.delete {
+
+    color: #f87171;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.delete:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   FUEL BADGES
+   ========================================================= */
+
+.fuel-badge {
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-weight: 500;
+
+    font-size: 13px;
+
+    display: inline-block;
+
+    min-width: 70px;
+
+    text-align: center;
+
+}
+
+
+.fuel-badge.gasoline {
+
+    background-color: #f97316;
+
+}
+
+
+.fuel-badge.diesel {
+
+    background-color: #3b82f6;
+
+}
+
+
+.fuel-badge.premium {
+
+    background-color: #a855f7;
+
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
+
+.fire-login-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    font-family: 'Inter', sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(8, 12, 20, 0.72),
+            rgba(8, 12, 20, 0.80)
+        ),
+        url("https://images.unsplash.com/photo-1632713336243-36dc3976a330?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+/* =========================================================
+   LOGIN BOX
+   ========================================================= */
+
+.fire-login-box {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    background:
+        rgba(28, 37, 48, 0.94);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.50);
+
+}
+
+
+/* =========================================================
+   LOGIN TITLE
+   ========================================================= */
+
+.fire-login-box h1 {
+
+    width: 100%;
+
+    margin: 0 0 30px 0;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   LOGIN LABEL
+   ========================================================= */
+
+.fire-login-box label {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 7px 0;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   LOGIN INPUT
+   ========================================================= */
+
+.fire-login-box input {
+
+    display: block;
+
+    width: 100%;
+
+    height: 42px;
+
+    margin: 0 0 17px 0;
+
+    padding: 0 12px;
+
+    background: #10151f;
+
+    border:
+        1px solid #444444;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+}
+
+
+.fire-login-box input:focus {
+
+    border-color: #ff7a00;
+
+    box-shadow:
+        0 0 0 2px rgba(255, 122, 0, 0.12);
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.fire-login-button {
+
+    display: block;
+
+    width: 100%;
+
+    height: 44px;
+
+    margin: 5px auto 0 auto;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #ff7a00
+        );
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.fire-login-button:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.95;
+
+    box-shadow:
+        0 8px 20px rgba(255, 122, 0, 0.25);
+
+}
+
+
+/* =========================================================
+   LOGIN SIGN UP AREA
+   ========================================================= */
+
+.fire-login-links {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+}
+
+
+.fire-login-links p {
+
+    margin: 0 0 12px 0;
+
+    color: #bbbbbb;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   SIGN UP BUTTON
+   SMALL + CENTERED
+   ========================================================= */
+
+.fire-register-button {
+
+    display: table;
+
+    width: auto;
+
+    margin: 0 auto;
+
+    padding: 9px 25px;
+
+    color: #ff7a00;
+
+    background: transparent;
+
+    border:
+        2px solid #ff7a00;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+}
+
+
+.fire-register-button:hover {
+
+    background: #ff7a00;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================================
+   REGISTER PAGE
+   ========================================================= */
+
+.fire-register-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    font-family: 'Inter', sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(8, 12, 20, 0.72),
+            rgba(8, 12, 20, 0.80)
+        ),
+        url("https://images.unsplash.com/photo-1632713336243-36dc3976a330?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+/* =========================================================
+   REGISTER BOX
+   ========================================================= */
+
+.fire-register-box {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    background:
+        rgba(28, 37, 48, 0.94);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.50);
+
+}
+
+
+/* =========================================================
+   REGISTER ICON
+   ========================================================= */
+
+.fire-register-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 20px auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #ff7a00
+        );
+
+    color: #ffffff;
+
+    font-size: 36px;
+
+}
+
+
+/* =========================================================
+   REGISTER TITLE
+   ========================================================= */
+
+.fire-register-box h1 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+}
+
+
+/* =========================================================
+   REGISTER SUBTITLE
+   ========================================================= */
+
+.fire-register-subtitle {
+
+    margin: 10px 0 25px 0;
+
+    color: #bbbbbb;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   REGISTER FIELD
+   ========================================================= */
+
+.fire-register-field {
+
+    width: 100%;
+
+    margin-bottom: 16px;
+
+}
+
+
+.fire-register-field label {
+
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 7px;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+.fire-register-field input {
+
+    display: block;
+
+    width: 100%;
+
+    height: 42px;
+
+    margin: 0;
+
+    padding: 0 12px;
+
+    background: #10151f;
+
+    border:
+        1px solid #444444;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+}
+
+
+.fire-register-field input::placeholder {
+
+    color: #777f8d;
+
+}
+
+
+.fire-register-field input:focus {
+
+    border-color: #ff7a00;
+
+    box-shadow:
+        0 0 0 2px rgba(255, 122, 0, 0.12);
+
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT BUTTON
+   ========================================================= */
+
+.fire-create-account-button {
+
+    display: block;
+
+    width: 100%;
+
+    height: 44px;
+
+    margin: 5px auto 0 auto;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #ff7a00
+        );
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.fire-create-account-button:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.95;
+
+    box-shadow:
+        0 8px 20px rgba(255, 122, 0, 0.25);
+
+}
+
+
+/* =========================================================
+   REGISTER LOGIN AREA
+   ========================================================= */
+
+.fire-register-login {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    text-align: center;
+
+}
+
+
+.fire-register-login p {
+
+    margin: 0 0 12px 0;
+
+    color: #bbbbbb;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON ON REGISTER
+   SMALL + CENTERED
+   ========================================================= */
+
+.fire-back-login-button {
+
+    display: table;
+
+    width: auto;
+
+    margin: 0 auto;
+
+    padding: 9px 25px;
+
+    color: #ff7a00;
+
+    background: transparent;
+
+    border:
+        2px solid #ff7a00;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+}
+
+
+.fire-back-login-button:hover {
+
+    background: #ff7a00;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+    .main-container {
+
+        width: 95%;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .content {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-section,
+    .table-section {
+
+        width: 100%;
+
+    }
+
+    .topbar {
+
+        padding: 20px;
+
+    }
+
+    .main-container {
+
+        width: 94%;
+
+    }
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .fire-login-page,
+    .fire-register-page {
+
+        padding: 20px 15px;
+
+        background-attachment: scroll;
+
+    }
+
+
+    .fire-login-box,
+    .fire-register-box {
+
+        width: 100%;
+
+        max-width: 400px;
+
+        padding: 30px 22px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .fire-login-box h1,
+    .fire-register-box h1 {
+
+        font-size: 29px;
+
+    }
+
+
+    .fire-register-icon {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 30px;
+
+    }
+
+
+    .topbar {
+
+        justify-content: center;
+
+        text-align: center;
+
+    }
+
+
+    .brand {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .topbar-right {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .logo-circle {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 24px;
+
+    }
+
+
+    .card p {
+
+        font-size: 24px;
+
+    }
+
+
+    .form-section,
+    .table-section {
+
+        padding: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .fire-login-box,
+    .fire-register-box {
+
+        padding: 25px 18px;
+
+    }
+
+
+    .fire-login-box h1,
+    .fire-register-box h1 {
+
+        font-size: 26px;
+
+    }
 
 }
